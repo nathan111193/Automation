@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import java.util.List;
+
 import java.util.concurrent.TimeUnit;
 
 public class MultipleSelectOptions
@@ -25,7 +25,7 @@ public class MultipleSelectOptions
         driver.manage().window().maximize();
     }
 
-    @Test
+   /* @Test
     public void multipleSelectOptions() throws InterruptedException
     {
         WebElement multipleoptionbox = driver.findElement(By.id("multiple-select-example"));
@@ -66,6 +66,30 @@ public class MultipleSelectOptions
 
         sel.selectByVisibleText("Honda");
         Thread.sleep(3000);
+    }
+
+    @Test
+    public void newoptions()
+    {
+        WebElement multiselect = driver.findElement(By.id("multiple-select-example"));
+
+        Select sel = new Select(multiselect);
+
+        sel.selectByIndex(0);
+        sel.selectByValue("orange");
+        sel.selectByVisibleText("Peach");
+    }*/
+
+    @Test
+    public void newoption()
+    {
+        WebElement selectClass = driver.findElement(By.id("carselect"));
+
+        Select sel = new Select(selectClass);
+
+        sel.selectByIndex(0);
+        sel.selectByValue("benz");
+        sel.selectByVisibleText("Honda");
     }
 
 }
