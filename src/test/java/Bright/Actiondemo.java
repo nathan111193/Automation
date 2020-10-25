@@ -19,12 +19,12 @@ public class Actiondemo
     {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get("https://letskodeit.teachable.com/p/practice");
         driver.manage().window().maximize();
     }
 
-    @Test
+   /* @Test
     public void action() throws InterruptedException {
 
         WebElement mouseHover = driver.findElement(By.id("mousehover"));
@@ -37,5 +37,18 @@ public class Actiondemo
         WebElement subelement = driver.findElement(By.xpath("//a[contains(text(),'Top')]"));
         actions.moveToElement(subelement).click().perform();
 
+    }*/
+
+
+    @Test
+    public void action()
+    {
+        WebElement hover = driver.findElement(By.id("mousehover"));
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(hover).perform();
+
+        WebElement reload = driver.findElement(By.xpath("//a[contains(text(),'Reload')]"));
+        actions.moveToElement(reload).click().perform();
     }
 }

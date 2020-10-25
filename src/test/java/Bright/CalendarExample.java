@@ -25,7 +25,7 @@ public class CalendarExample {
         driver.manage().window().maximize();
     }
 
-    @Test
+   /* @Test
     public void SouthallTravel() {
         WebElement Departingdatebox = driver.findElement(By.id("depdateit"));
         Departingdatebox.click();
@@ -85,6 +85,33 @@ public class CalendarExample {
                 alldate.click();
             }
         }
+    }*/
+
+    @Test
+    public void expedia1()
+    {
+        WebElement flight = driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/figure[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]"));
+        flight.click();
+
+        WebElement calendar = driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/figure[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"));
+        calendar.click();
+
+        WebElement October = driver.findElement(By.xpath("//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/figure[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/table[1]"));
+        October.click();
+
+        System.out.println(calendar.isDisplayed());
+
+        List<WebElement> dates = October.findElements(By.cssSelector(".uitk-new-date-picker-day"));
+        for (WebElement date : dates)
+        {
+            System.out.println(date.getAttribute("data-day"));
+
+            if (date.getAttribute("data-day").contains("25"))
+            {
+                date.click();
+            }
+        }
+
     }
 
 
